@@ -2,7 +2,9 @@
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schedule;
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote')->hourly();
+Schedule::command('time-of-sub-task')->everyMinute();
+Schedule::command('notify-admins-of-pass2-days')->daily();
+Schedule::command('delete-finished-and2-days-pass-tasks')->daily();
+
